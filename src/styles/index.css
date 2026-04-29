@@ -1,0 +1,30 @@
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f1f3f6; /* Flipkart style light gray */
+  color: #212121;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+
+  /* NEW: smooth hover feel */
+  transition: 0.2s;
+}
+
+/* NAV HOVER (kept from your file) */
+.header__nav a:hover {
+  text-decoration: underline;
+}
