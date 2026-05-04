@@ -1,0 +1,19 @@
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── SearchBar.jsx
+│   ├── CountryCard.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── CountryPage.jsx
+│   ├── NotFound.jsx
+│
+├── hooks/
+│   └── useCountry.js
+│
+├── styles/
+│   └── App.css
+│
+├── App.jsx
+├── main.jsx
