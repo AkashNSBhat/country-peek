@@ -38,4 +38,4 @@ CountryPeek is a modern React web application that allows users to search and ex
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/country-peek.git
+https://github.com/AkashNSBhat/country-peek.git
