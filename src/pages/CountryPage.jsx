@@ -8,7 +8,7 @@ function CountryPage() {
   const { country, loading, error } = useCountry(code);
 
   if (loading) return <p className="page-status">Loading...</p>;
-  if (error) return <p className="page-status page-status--error">{error}</p>;
+  if (error) return <p className="page-status error">{error}</p>;
   if (!country) return null;
 
   const {
@@ -23,7 +23,7 @@ function CountryPage() {
     borders,
   } = country;
 
-  const languageList = languages ? Object.values(languages) : [];
+  const langList = languages ? Object.values(languages) : [];
   const currencyList = currencies
     ? Object.values(currencies).map((c) => c.name)
     : [];
@@ -31,39 +31,28 @@ function CountryPage() {
   return (
     <div className="country-page">
       <button className="back-btn" onClick={() => navigate(-1)}>
-        ⬅ Back
+        ← Back
       </button>
 
-      <div className="country-page__layout">
-        <img
-          src={flags.svg}
-          alt={name.common}
-          className="country-page__flag"
-        />
+      <div className="country-layout">
+        <img src={flags.svg} alt={name.common} />
 
-        <div className="country-page__info">
-          <h2 className="country-page__name">{name.common}</h2>
-          <p className="country-page__official">{name.official}</p>
+        <div className="info">
+          <h2>{name.common}</h2>
+          <p>{name.official}</p>
 
-          <div className="country-page__details">
+          <p><b>Population:</b> {population.toLocaleString()}</p>
+          <p><b>Region:</b> {region}</p>
+          <p><b>Subregion:</b> {subregion}</p>
+          <p><b>Capital:</b> {capital?.[0]}</p>
+          <p><b>Languages:</b> {langList.join(", ")}</p>
+          <p><b>Currencies:</b> {currencyList.join(", ")}</p>
+
+          {borders && (
             <div>
-              <p><strong>Population:</strong> {population.toLocaleString()}</p>
-              <p><strong>Region:</strong> {region}</p>
-              <p><strong>Subregion:</strong> {subregion}</p>
-              <p><strong>Capital:</strong> {capital?.[0] ?? "N/A"}</p>
-            </div>
-
-            <div>
-              <p><strong>Languages:</strong> {languageList.join(", ")}</p>
-              <p><strong>Currencies:</strong> {currencyList.join(", ")}</p>
-            </div>
-          </div>
-
-          {borders && borders.length > 0 && (
-            <div className="border-container">
-             <p><strong>Border Countries:</strong></p>
-             {borders.map((b) => (
-               <span key={b} className="border-badge">{b}</span>
+              <b>Borders:</b>
+              {borders.map((b) => (
+                <span key={b} className="badge">{b}</span>
               ))}
             </div>
           )}

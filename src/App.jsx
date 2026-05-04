@@ -9,13 +9,10 @@ function App() {
     <BrowserRouter>
       <Header />
 
-      <main>
+      <main className="container">
         <Routes>
           <Route path="/" element={<Home />} />
-
-          {/* ✅ FIXED ROUTE */}
           <Route path="/country/:code" element={<CountryPage />} />
-
           <Route path="/favourites" element={<div>Favourites Page</div>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
